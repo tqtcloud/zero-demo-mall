@@ -1,0 +1,31 @@
+Name: user.rpc
+ListenOn: 0.0.0.0:9000
+
+Etcd:
+  Hosts:
+  - 192.168.0.102:2379
+  Key: user.rpc
+
+Mysql:
+  DataSource: root:123456@tcp(192.168.0.102:3306)/mall?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+
+CacheRedis:
+  - Host: 192.168.0.102:6379
+    Pass: "123456"
+    Type: node
+
+# 加盐
+Salt: HWVOFkGgPTryzICwd7qnJaZR9KQ2i8xe
+
+Auth: true               # 是否开启 Auth 验证
+StrictControl: true      # 是否开启严格模式
+Redis:                   # 指定 Redis 服务
+  Host: 192.168.0.102:6379
+  Pass: "123456"
+  Type: node
+  Key: rpc:auth:user     # 指定 Key 应为 hash 类型
+
+Prometheus:
+  Host: 0.0.0.0
+  Port: 9080
+  Path: /metrics
