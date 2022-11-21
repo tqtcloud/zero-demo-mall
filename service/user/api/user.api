@@ -42,9 +42,7 @@ service User {
 @server(
 	jwt: Auth
 )
-
 service User {
 	@handler UserInfo
 	post /api/user/userinfo() returns (UserInfoResponse)
-	
 }

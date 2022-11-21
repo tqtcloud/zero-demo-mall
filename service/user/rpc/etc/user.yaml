@@ -21,7 +21,7 @@ Auth: true               # 是否开启 Auth 验证
 StrictControl: true      # 是否开启严格模式
 Redis:                   # 指定 Redis 服务
   Host: 192.168.0.102:6379
-  Pass: "123456"
+  Pass:
   Type: node
   Key: rpc:auth:user     # 指定 Key 应为 hash 类型
 
