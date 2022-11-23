@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"github.com/tqtcloud/mall/greet/errorx"
 	"time"
 
 	"github.com/tqtcloud/mall/common/jwtx"
@@ -33,7 +34,7 @@ func (l *LoginLogic) Login(req *types.LoginRequest) (resp *types.LoginResponse, 
 		Password: req.Password,
 	})
 	if err != nil {
-		return nil, err
+		return nil, errorx.NewDefaultError("账号密码错误")
 	}
 
 	now := time.Now().Unix()
